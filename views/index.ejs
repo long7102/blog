@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="author">
+        <h1 class="author__heading">Hi, I am Vlong.</h1>
+        <p class="author__body">Web developer and content creator.</p>
+    </div>
+    
+    <style>
+        .element {
+            transition: transform 0.3s; /* Thời gian chuyển đổi cho hiệu ứng */
+        }
+        
+        .element:hover {
+            transform: scale(1.1); /* Phóng to gấp đôi khi di chuột vào */
+        }
+    </style>
+    
+    <img 
+    src="https://images7.alphacoders.com/134/thumb-1920-1341150.png" alt="person looking out through window" class="hero-image element" width="981" height="528">
+  
+    <section class="articles">
+        <h2 class="articles__heading">Latest Posts</h2> 
+  
+        <ul class="article-ul">
+            <% data.forEach(post => { %> 
+            <li>
+                <a href="/post/<%= post._id %>">
+                    <span><%= post.title %></span>
+                    <span class="article-list__date"><%= post.createdAt.toDateString() %></span>
+                </a>
+            </li>
+            <% }) %>
+        </ul>
+  
+        <% if (nextPage !== null) { %>
+        <a href="/?page=<%= nextPage %>" class="pagination">Older post</a>
+        <% } %>
+    </section>
+</body>
+</html>
